@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="stylesheet"  href="./index.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+  	
+  	
+  	
+</head>
+<body>
+  	
+  	<div class="encriptador-1-desktop">
+    		<div class="encriptador-1-desktop-child">
+    		</div>
+    		<div class="ingrese-el-texto" id="ingreseElTexto">Ingrese el texto aqui</div>
+    		<div class="button-parent">
+      			<div class="button">
+        				<div class="button1">Encriptar</div>
+      			</div>
+      			<div class="button2">
+        				<div class="button1">Desencriptar</div>
+      			</div>
+    		</div>
+    		<div class="biexclamation-circle-fill-parent">
+      			<img class="biexclamation-circle-fill-icon" alt="" src="bi:exclamation-circle-fill.svg">
+      			
+      			<div class="solo-letras-minsculas">Solo letras minúsculas y sin acentos</div>
+    		</div>
+    		<img class="mueco-icon" alt="" src="./assets/Muñeco.png">
+    		
+    		<div class="ningn-mensaje-fue-encontrado-parent">
+      			<b class="ningn-mensaje-fue">Ningún mensaje fue encontrado</b>
+      			<div class="ingresa-el-texto">Ingresa el texto que desees encriptar o desencriptar.</div>
+    		</div>
+    		<div class="logo">
+      			<img class="logo-icon" alt="" src="./assets/Logo.png">
+      			
+      			<div class="menu">
+      			</div>
+      			<div class="menu">
+      			</div>
+    		</div>
+  	</div>
+  	
+	  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ingreseElTexto = document.getElementById('ingreseElTexto');
+
+            document.addEventListener('click', function(event) {
+                var target = event.target;
+
+                if (target.classList.contains('button1')) {
+                    // Encriptar button clicked
+                    var texto = ingreseElTexto.innerText;
+                    var textoEncriptado = encriptarTexto(texto);
+                    console.log('Texto encriptado:', textoEncriptado);
+                } else if (target.classList.contains('button2')) {
+                    // Desencriptar button clicked
+                    var texto = ingreseElTexto.innerText;
+                    var textoDesencriptado = desencriptarTexto(texto);
+                    console.log('Texto desencriptado:', textoDesencriptado);
+                }
+            });
+
+            function encriptarTexto(texto) {
+                // Implementa tu lógica de encriptación aquí
+                return btoa(texto); // Ejemplo usando Base64
+            }
+
+            function desencriptarTexto(texto) {
+                // Implementa tu lógica de desencriptación aquí
+                return atob(texto); // Ejemplo usando Base64
+            }
+        });
+    </script>
+    </body>
+</html>
